@@ -53,14 +53,13 @@ export default function EditPage(){
     const handlePost = ()=>{
         if(id && !isNaN(id))
         {axios.post(`/edit/${id}`, {
-            'id': id,
-            'brand': brand,
-            'model': model,
-            'category': category,
-            'stateNumber': stateNumber,
-            'vehicleType': vehicleType,
-            'yearOfManufacture': yearOfManufacture,
-            'availabilityOfTrailer': availabilityOfTrailer
+            brand: brand,
+            model: model,
+            category: category,
+            stateNumber: stateNumber,
+            vehicleType: vehicleType,
+            yearOfManufacture: yearOfManufacture,
+            availabilityOfTrailer: availabilityOfTrailer
         }
         )
         .then(res=>{
