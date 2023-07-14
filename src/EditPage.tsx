@@ -32,7 +32,8 @@ RowTF = styled(TextField)({
     width: '50%'
 });
 
-const vehicleTypes = ['L', 'M', 'N', 'O', 'G'];
+const categories = ['L', 'M', 'N', 'O', 'G'],
+vehicleTypes = ['PASSENGERCATS', 'TRUCKS', 'BUS', 'BIKE', 'MOPED'];
 
 export default function EditPage(){
     const [category, setCategory] = React.useState('');
@@ -46,16 +47,19 @@ export default function EditPage(){
     const handleVehicleType = (event: SelectChangeEvent) => {
         setVehicleType(event.target.value);
     };
+    const handleCategory = (event: SelectChangeEvent) =>{
+        setCategory(event.target.value);
+    }
     const handlePost = ()=>{
         if(id && !isNaN(id))
         {axios.post(`/edit/${id}`, {
-            brand: brand,
-            model: model,
-            category: category,
-            stateNumber: stateNumber,
-            vehicleType: vehicleType,
-            yearOfManufacture: yearOfManufacture,
-            availabilityOfTrailer: availabilityOfTrailer
+            'brand': brand,
+            'model': model,
+            'category': category,
+            'stateNumber': stateNumber,
+            'vehicleType': vehicleType,
+            'yearOfManufacture': yearOfManufacture,
+            'availabilityOfTrailer': availabilityOfTrailer
         }
         )
         .then(res=>{
@@ -139,15 +143,6 @@ export default function EditPage(){
             placeholder='Год выпуска'/>
         </Row>
         <Row>
-            <RowTypography>
-                Категория
-            </RowTypography>
-            <RowTF
-            value={category}
-            onChange={(e)=>{setCategory(e.target.value)}}
-            placeholder='Категория'/>
-        </Row>
-        <Row>
             <RowTypography>Тип ТС</RowTypography>
             <FormControl sx={{ width: '50%', height: '3em'}}  variant="filled" size="small">
                     <InputLabel id="demo-simple-select-autowidth-label">Тип ТС</InputLabel>
@@ -161,6 +156,26 @@ export default function EditPage(){
                     >
                     {
                         vehicleTypes.map((it) => (
+                            <MenuItem value={it} key={it}>{it}</MenuItem>
+                        ))
+                    }
+                    </Select>
+            </FormControl>
+        </Row>
+        <Row>
+            <RowTypography>Категория</RowTypography>
+            <FormControl sx={{ width: '50%', height: '3em'}}  variant="filled" size="small">
+                    <InputLabel id="demo-simple-select-autowidth-label">Категория</InputLabel>
+                    <Select sx={{height: '100%'}}
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={category}
+                    onChange={handleCategory}
+                    autoWidth
+                    label="Категория"
+                    >
+                    {
+                        categories.map((it) => (
                             <MenuItem value={it} key={it}>{it}</MenuItem>
                         ))
                     }
