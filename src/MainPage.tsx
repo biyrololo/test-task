@@ -128,8 +128,7 @@ export default function MainPage(){
         height: '90vh',
         justifyContent: 'space-between'
     }}>
-    <TableContainer component={Paper} sx={{ maxHeight: '40vh' }}> {// sx={{ maxHeight: '50vh' }}
-    }
+    <TableContainer component={Paper} sx={{ maxHeight: '40vh' }}>
       <Table sx={{ minWidth: 350}} aria-label="simple table" stickyHeader>
         <TableHead>
           <TableRow>
