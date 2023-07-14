@@ -63,6 +63,8 @@ export default function EditPage(){
         }
         )
         .then(res=>{
+            toast.success('Успешно');
+            window.location.href="/";
             })
         .catch((error) => {
             toast.error('Ошибка')
@@ -79,6 +81,8 @@ export default function EditPage(){
             }
             )
             .then(res=>{
+                toast.success('Успешно');
+                window.location.href="/";
                 })
             .catch((error) => {
                 toast.error('Ошибка')
