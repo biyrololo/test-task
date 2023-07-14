@@ -52,7 +52,7 @@ export default function EditPage(){
     }
     const handlePost = ()=>{
         if(id && !isNaN(id))
-        {axios.post(`/edit/${id}`, {
+        {axios.post(`/edit/{id}?id=${id}`, {
             brand: brand,
             model: model,
             category: category,
