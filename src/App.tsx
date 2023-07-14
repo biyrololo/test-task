@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import MainPage from './MainPage'
 import EditPage from './EditPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
